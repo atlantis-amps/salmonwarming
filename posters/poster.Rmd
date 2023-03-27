@@ -1,21 +1,34 @@
 ---
 title: Generate Reproducible & Live HTML and PDF Conference Posters Using RMarkdown
+poster_height: "46in"
+poster_width:  "33in"
+font_family: 'Helvetica'
 author:
-  - name: Brent Thorne
+  - name: Hem Nalini Morzaria-Luna
     affil: 1
     orcid: '0000-0002-1099-3857'
-  - name: Another G. Author
+  - name: Stevie Walker
     affil: 2
+  - name: Isaac C. Kaplan
+    affil: 3
+  - name: Chris Harvey
+    affil: 3  
 affiliation:
   - num: 1
-    address: Department of Earth Science, Brock University
+    address: Long Live the Kings, 1326 5th Ave Suite 450, Seattle, Washington, United States. 
   - num: 2
-    address: Department of Graphics and Layouts, University of Posters; Canada
+    address: Boston College, Department of Earth & Environmental Sciences, 140 Commonwealth Ave, Chestnut Hill, Massachusetts, United States.
+  - num: 3 
+    address: Northwest Fisheries Science Center, Conservation Biology Division, 2725 Montlake Blvd East, Seattle, Washington, United States.
+primary_colour: "#ade8f4"
+secondary_colour: "#219ebc"
+accent_colour: "#023047"
+main_findings: "Salmon die when it gets too warm"
 column_numbers: 3
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
-  posterdown::posterdown_html:
+  posterdown::posterdown_betterport:
     self_contained: false
 bibliography: packages.bib
 ---
@@ -23,14 +36,19 @@ bibliography: packages.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+# Atlantis Ecosystem Model
+Atlantis modeling framework is a deterministic simulation model designed to support strategic decision making for marine resource management. 
 
-# Introduction
 
-Welcome to `posterdown` ! This is my attempt to provide a semi-smooth workflow for those who wish to take their R Markdown skills to the conference world. Most features from R Markdown are available in this package such as Markdown section notation, figure captioning, and even citations like this one [@R-rmarkdown]. The rest of this example poster will show how you can insert typical conference poster features into your own document. 
+
+# Study area
+
+Puget Sound, an urban estuary in the Pacific Northwest, USA. Here climate change will reshape the ecosystem through bottom-up processes, affecting the abundance of groups at the base of the food web (i.e. phytoplankton and marine plants) and through top-down processes
 
 ## Objectives
 
-1. Easy to use reproducible poster design. 
+1. Apply the Atlantis model for Puget Sound 
+2. Link scenarios of warming oceanography to Atlantis simulations that test to what extent ‘speeding up’ ecosystem-wide anabolic processes (e.g., gains due to higher growth rates) will be balanced by ‘speeding up’ catabolic processes (e.g., losses due to declines in assimilation rates or increases in predation mortality)
 2. Integration with R Markdown.
 3. Easy transition from `posterdown` to `pagedown` report or manuscript documents [@R-pagedown].
 

@@ -1,0 +1,53 @@
+---
+title: "warming_effects"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{warming_effects}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(salmonwarming)
+```
+
+```{r}
+
+PugetSoundAtlantisPolygons  <- readOGR(".","bgm_Puget_Sound_89b_0p0001_WGS84")
+#plot(PugetSoundAtlantisPolygons, add=TRUE)
+
+#temperature ROMS time series used to drive Atlantis
+# 2yr timeseries for 2005 and 2006, timestep is 12 hours 
+
+atlantis.temp.roms <- "pugetsound_roms_temp.nc"
+
+atlantis.salt.roms <- "pugetsound_roms_salt.nc"
+
+#dim(temperatureArray)
+#[1]    7   89 1460
+# Note this is layers 1-7,  listed as deepest to shallowest, then blanks, then sediemntn. See user manual. 
+
+#---------------
+# Need to get the number of depth layers for each of the 89 Atlantis polygons, and a count of total num polygons
+AtlantisBoxInfo <- read.csv(here::here("~/Puget_Sound_Downscaling/data-raw/roms_forcing","AtlantisBoxInfo.csv"))
+#AtlantisBoxInfo$num_layers
+#AtlantisBoxInfo$box_id
+
+data.path <- "~/Puget_Sound_Downscaling/interpolated_files"
+forcing.path <- "~/Puget_Sound_Downscaling/roms_forcing"
+
+save.path <- "~/Puget_Sound_Downscaling/overlay_files"
+dir.create(save.path)
+
+file.list <- list.files(data.path, pattern = "*.*asc$")
+
+ lapply(file.list,overlay_roms, PugetSoundAtlantisPolygons, AtlantisBoxInfo,atlantis.temp.roms, atlantis.salt.roms, data.path, save.path)
+```
+
