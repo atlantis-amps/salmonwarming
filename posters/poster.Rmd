@@ -2,7 +2,7 @@
 title: Generate Reproducible & Live HTML and PDF Conference Posters Using RMarkdown
 poster_height: "46in"
 poster_width:  "33in"
-font_family: 'Helvetica'
+font_family: 'Cabin'
 author:
   - name: Hem Nalini Morzaria-Luna
     affil: 1
@@ -23,10 +23,10 @@ affiliation:
 primary_colour: "#ade8f4"
 secondary_colour: "#219ebc"
 accent_colour: "#023047"
-main_findings: "Salmon die when it gets too warm"
+main_findings: "Warming impacts on salmon and herring have widespread ecosystem impacts"
 column_numbers: 3
-logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+logoright_name: https://user-images.githubusercontent.com/11339490/230630283-502c610d-4837-4a71-a8bc-c7459fa3a623.png
+logoleft_name: https://user-images.githubusercontent.com/11339490/221080115-55142753-1e09-4d8f-a0b4-df314d9dfd19.jpg
 output: 
   posterdown::posterdown_betterport:
     self_contained: false
@@ -36,31 +36,31 @@ bibliography: packages.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-# Atlantis Ecosystem Model
-Atlantis modeling framework is a deterministic simulation model designed to support strategic decision making for marine resource management. 
+# Climate change effects in the marine system of Puget Sound
+
+We used an end-to-end deterministic simulation model to link the physiological effects of warming oceanography to ecosystem-level changes, and investigated temperature sensitivity. 
 
 
+# Response to warming
+In Puget Sound, an urban estuary in the Pacific Northwest, USA, climate change will reshape the ecosystem through bottom-up processes, affecting the abundance of groups at the base of the food web (i.e. phytoplankton and marine plants) and through top-down processes.
 
-# Study area
+## Objective
 
-Puget Sound, an urban estuary in the Pacific Northwest, USA. Here climate change will reshape the ecosystem through bottom-up processes, affecting the abundance of groups at the base of the food web (i.e. phytoplankton and marine plants) and through top-down processes
-
-## Objectives
-
-1. Apply the Atlantis model for Puget Sound 
-2. Link scenarios of warming oceanography to Atlantis simulations that test to what extent ‘speeding up’ ecosystem-wide anabolic processes (e.g., gains due to higher growth rates) will be balanced by ‘speeding up’ catabolic processes (e.g., losses due to declines in assimilation rates or increases in predation mortality)
-2. Integration with R Markdown.
-3. Easy transition from `posterdown` to `pagedown` report or manuscript documents [@R-pagedown].
+Link scenarios of warming oceanography to Atlantis simulations that test to what extent ‘speeding up’ ecosystem-wide anabolic processes (e.g., gains due to higher growth rates) will be balanced by ‘speeding up’ catabolic processes (e.g., losses due to declines in assimilation rates or increases in predation mortality).
 
 # Methods
 
-This package uses the same workflow approach as the R Markdown you know and love. Basically it goes from RMarkdown > Knitr > Markdown > Pandoc > HTML/CSS > PDF. You can even use the bibliography the same way [@R-posterdown].
+Atlantis is an end-to-end ecosystem modeling approach that represents all trophic levels from bacteria to apex predators and humans. It integrates physical, chemical, ecological, and fisheries dynamics in a three-dimensional, spatially-explicit domain that uses an irregular polygon structure to represent important bioregional features. 
+
+We used the climate change anomalies of future Sea Surface temperature and salinity from CMIP6 projections downscaled for Puget Sound by Walker et al. (Walker et al. 2022) to force Atlantis, we also tested temperature sensitivity parametrized for Chinook and coho salmon and Pacific Herring, and compared with a base scenario.
+
+We used a Kitchell response curve (courtesy A. Rovellini)
 
 # Results
 
-Usually you want to have a nice table displaying some important results that you have calculated. In `posterdown` this is as easy as using the `kable` table formatting you are probably use to as per typical R Markdown formatting.
-
-You can reference tables like so: Table \@ref(tab:mytable). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat augue at velit tincidunt semper. Donec elementum porta posuere. Nullam interdum, odio at tincidunt feugiat, turpis nisi blandit eros, eu posuere risus felis non quam. Nam eget lorem odio. Duis et aliquet orci. Phasellus nec viverra est.
+Chinook and Coho survival
+Total system biomass
+Biomass of phytoplankton
 
 ```{r mytable, out.width='80%'}
 knitr::kable(iris[1:10, 1:4], caption = 'Table caption.',align = 'c',"html")
@@ -86,14 +86,18 @@ plot(x = data$Sepal.Length,
 
 # Next Steps
 
-Aliquam sed faucibus risus, quis efficitur erat. Vestibulum semper mauris quis tempus eleifend. Aliquam sagittis dictum ipsum, quis viverra ligula eleifend ut. Curabitur sagittis vitae arcu eget faucibus. In non elementum felis. Duis et aliquam nunc. Nunc pulvinar sapien nunc, vel pretium nisi efficitur in. Fusce fringilla maximus leo et maximus. Fusce at ligula laoreet, iaculis mi at, auctor odio. Praesent sed elementum justo. Aenean consectetur risus rhoncus tincidunt efficitur. Praesent dictum mauris at diam maximus maximus [@R-posterdown].
-
+ We used a single-model ensemble approach, where multiple simulations are conducted with the same model, for a given scenario, while parameter values are varied between simulations (Gal et al. 2014). The model ensembles allows us to characterize parameter uncertainty (Payne et al. 2015); we developed eight different model ensemble members where invertebrate growth rates and fish and mammal density dependence vary within plausible ranges. We did not consider every parameter combination, but rather selected a subset that defines a ‘bounding box’ of possible parameter combinations that approximate the lower and upper bounds of observed system productivity (Fulton et al. 2014).
+ 
 # Conclusion
 
-Try `posterdown` out! Hopefully you like it!
+Further research is needed on how to adequately implement physiological responses to ocean warming that can help understand potential future changes under climate change. 
 
 ```{r, include=FALSE}
 knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 ```
 
-# References
+# More information
+
+Walker et al. 2022. Future temperature and salinity in Puget Sound  
+
+Morzaria-Luna et al. 2022 

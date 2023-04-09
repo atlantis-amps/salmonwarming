@@ -51,3 +51,8 @@ file.list <- list.files(data.path, pattern = "*.*asc$")
  lapply(file.list,overlay_roms, PugetSoundAtlantisPolygons, AtlantisBoxInfo,atlantis.temp.roms, atlantis.salt.roms, data.path, save.path)
 ```
 
+```{r}
+pagedown::chrome_print("Poster.Rmd")
+
+```
+
